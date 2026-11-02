@@ -39,7 +39,7 @@
   }
   const sprite = new Image();let spriteReady=false;
   sprite.onload=()=>{spriteReady=true;};sprite.onerror=()=>{if(!sprite.src.endsWith(cfg.character_fallback_path))sprite.src=cfg.character_fallback_path;else toast('Karakter belum termuat. Coba muat ulang halaman.');};sprite.src=cfg.character_sprite_path;
-  const walkSprite=new Image();let walkReady=false,walkFrames=[],walkScale=1;
+  const walkSprite=new Image();let walkReady=false,walkFrames=[],walkScale=1,frontPose=null;
   if(cfg.directional_sprite){
     walkSprite.onload=()=>{
       const spec=cfg.directional_sprite, sheet=document.createElement('canvas');
@@ -52,7 +52,12 @@
         const ox=edgeX(col),oy=edgeY(row),cw=edgeX(col+1)-ox,ch=edgeY(row+1)-oy;
         walkFrames.push(spriteBounds(data,sheet.width,ox,oy,cw,ch));
       }
-      walkScale=72/Math.max(...walkFrames.map(f=>f.h));walkReady=true;
+      walkScale=72/Math.max(...walkFrames.map(f=>f.h));
+      // Cache one immutable front-facing standing image. Idle and celebration
+      // both draw these exact pixels at 1:1 size, so the body cannot squash.
+      const f=walkFrames[0],front=document.createElement('canvas');front.width=Math.round(f.w*walkScale);front.height=Math.round(f.h*walkScale);
+      const fc=front.getContext('2d');fc.imageSmoothingEnabled=false;fc.drawImage(walkSprite,f.x,f.y,f.w,f.h,0,0,front.width,front.height);
+      frontPose={canvas:front,width:front.width,height:front.height};walkReady=true;
     };
     walkSprite.onerror=()=>{walkReady=false;};walkSprite.src=cfg.directional_sprite.path;
   }
@@ -185,9 +190,12 @@
     const bounce=reduced?0:anim==='walk'?Math.abs(Math.sin(walkTime*Math.PI*8))*1.5:anim==='celebrate_cheer'?Math.abs(Math.sin(t*9))*12:Math.sin(t*2)*1.2;
     ctx.save();ctx.translate(x,y-jump-bounce);
     if(walkReady){
-      const selected=cheer>0?{index:0}:walkFrame(),f=walkFrames[selected.index];
-      const dw=f.w*walkScale,dh=f.h*walkScale;
-      ctx.drawImage(walkSprite,f.x,f.y,f.w,f.h,Math.round(-dw/2),Math.round(-dh),Math.round(dw),Math.round(dh));
+      if(frontPose&&(cheer>0||(!moving&&direction==='down'))){
+        const p=frontPose;ctx.drawImage(p.canvas,0,0,p.width,p.height,-Math.round(p.width/2),-p.height,p.width,p.height);
+      }else{
+        const selected=walkFrame(),f=walkFrames[selected.index],dw=f.w*walkScale,dh=f.h*walkScale;
+        ctx.drawImage(walkSprite,f.x,f.y,f.w,f.h,Math.round(-dw/2),Math.round(-dh),Math.round(dw),Math.round(dh));
+      }
     }else if(spriteReady){
       if(facing<0&&cheer<=0)ctx.scale(-1,1);
       if(cfg.sprite_sheet){const s=cfg.sprite_sheet,row=['idle','walk','jump','celebrate_cheer'].indexOf(anim),frame=Math.floor(t*(s.fps||8))%s.frames,scale=72/s.frameHeight;ctx.drawImage(sprite,frame*s.frameWidth,row*s.frameHeight,s.frameWidth,s.frameHeight,-s.frameWidth*scale/2,-72,s.frameWidth*scale,72);}
