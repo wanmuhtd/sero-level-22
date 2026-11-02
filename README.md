@@ -32,7 +32,7 @@ GitHub: https://github.com/wanmuhtd/sero-level-22
 
 GitHub Pages: https://wanmuhtd.github.io/sero-level-22/
 
-Kode sumber berada di branch `codex/sero-birthday`. GitHub Pages membaca branch `codex/pages` pada direktori root. Untuk memperbarui setelah commit perubahan, jalankan `git subtree split --prefix dist -b codex/pages-update`, lalu `git push origin codex/pages-update:codex/pages`. GitHub Pages akan membangun situs dari perubahan tersebut. `dist/.nojekyll` menjaga penerbitan statis tanpa pemrosesan Jekyll.
+Kode sumber berada di branch `codex/sero-birthday`. GitHub Pages membaca branch `codex/pages` pada direktori root. Setelah commit dan push perubahan sumber, jalankan `node deploy.cjs` untuk menerbitkan snapshot `dist/` sambil mempertahankan riwayat Pages yang bersih. GitHub Pages akan membangun situs dari perubahan tersebut. `dist/.nojekyll` menjaga penerbitan statis tanpa pemrosesan Jekyll.
 
 ## Verifikasi
 
