@@ -1,0 +1,73 @@
+/* Final layout rules shared by phone, tablet, desktop and touch laptops. */
+.control-deck,.control-deck *,.dpad,.dpad *,.action-pad,.action-pad *,.skill-button,.skill-button *,.tools,.tools *,#game,.interact{user-select:none!important;-webkit-user-select:none!important;-webkit-touch-callout:none;-webkit-user-drag:none}
+.control-deck button,.tools button,.interact{touch-action:none}
+html{scrollbar-gutter:stable}body{min-width:280px;overflow-x:clip}button{min-height:44px}img,canvas{max-width:100%}
+.cartridge{max-width:1280px;padding:0 clamp(16px,3.8vw,52px)}
+.masthead{height:72px;gap:18px}.brand{flex-shrink:0}.heading{padding:12px 0 26px}.heading>div:first-child{min-width:0}
+h1{font-size:clamp(22px,2.5vw,34px);letter-spacing:-1px;line-height:1.5}.subline{line-height:1.25;max-width:680px}
+.game-frame{scroll-margin-top:12px;isolation:isolate}.viewport{height:clamp(400px,56svh,590px)}
+.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:16px;min-height:74px;padding:10px 16px}
+.player,.player>div:last-child{min-width:0}.player b{display:block;white-space:nowrap}.player span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px}.avatar{flex-shrink:0}
+.star-count{margin:0;gap:7px}.tools{gap:6px}.tools button,#sound-button{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:5px;padding:0 11px}
+.quest-strip{min-height:56px;padding:10px 16px;gap:12px}.quest-strip p{line-height:1.15;min-width:0}.quest-strip>span:last-child{min-width:35px;text-align:right}
+.control-deck{display:grid;grid-template-columns:minmax(250px,320px) minmax(0,1fr);grid-template-areas:'skill keyboard';align-items:center;background:#f4edf5;padding:12px 16px;gap:22px}
+.skill-bar{grid-area:skill;display:block;padding:0;border:0;background:transparent}.skill-button{width:100%;min-width:0;min-height:58px}.skill-copy{min-width:0}.skill-copy small{white-space:nowrap;font-size:16px}.skill-clock{font-size:18px}
+.desktop-controls{grid-area:keyboard;padding:0;gap:15px;font-size:16px;align-items:center}.desktop-controls p{line-height:1.7;margin:0;gap:5px}.desktop-controls i{width:4px}.desktop-controls button{white-space:nowrap;min-width:65px}.mobile-controls{grid-area:touch;display:none}
+.quest-log{gap:24px;margin:28px 0 20px}.quest-step{gap:12px;min-width:0}.quest-step>div{min-width:0}.quest-step h3{line-height:1.2}.quest-step p{line-height:1.2}.step-state{font-size:11px}.step-icon{flex-shrink:0}
+.location{max-width:calc(100% - 32px);white-space:nowrap}.toast{font-size:20px;line-height:1.15;bottom:18px;max-width:min(90%,600px);padding:11px 16px}.ride-status{top:14px;bottom:auto;right:14px;font-size:16px}
+.welcome-inner{width:min(460px,90%);max-height:calc(100% - 28px);overflow:auto;padding:22px 28px}.welcome h2{font-size:clamp(18px,2vw,24px)}.welcome p:not(.pixel){font-size:22px}.welcome-note{line-height:1.5}.welcome .primary{min-height:48px}
+.rpg-dialog{max-height:calc(100dvh - 32px);max-width:min(620px,calc(100% - 32px));overscroll-behavior:contain}.gift-dialog{max-width:min(820px,calc(100% - 32px))}.dialog-top{position:sticky;top:0;z-index:2}.dialog-top button{min-width:44px}.help-body{font-size:22px}.letter p{font-size:23px}.gift-body{gap:26px}.letter #greeting{min-height:150px}
+footer{flex-wrap:wrap;gap:8px 20px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+/* Shared touch pad geometry: also available on tablet and touch laptops. */
+.dpad{display:grid;grid-template-columns:44px 44px 44px;grid-template-rows:44px 44px 44px;gap:1px;touch-action:none}
+.dpad button{background:#d5c2de;min-height:44px;border:2px solid #a68bb3;color:#61436d;font-size:22px;padding:0;touch-action:none;user-select:none}
+.dpad .up{grid-area:1/2}.dpad .left{grid-area:2/1}.dpad .right{grid-area:2/3}.dpad .down{grid-area:3/2}.dpad>span{grid-area:2/2;background:#d5c2de}
+.action-pad{display:flex;gap:18px;transform:rotate(-8deg)}.action-pad>div{display:flex;flex-direction:column;align-items:center;gap:7px}.action-pad>div:first-child{margin-top:18px}
+.action-pad button{width:52px;height:52px;min-height:52px;border-radius:50%;background:#eaa3ba;border:3px solid #ad6989;box-shadow:2px 3px #c9aecb;font-size:26px;touch-action:none;user-select:none}.action-pad span{font-size:12px;color:#85658d}.touch-tip{display:none}
+@media(min-width:701px) and (max-width:1100px){
+ .cartridge{padding:0 28px}.heading{gap:24px}.level-stamp{width:98px;height:100px}h1{font-size:clamp(23px,3vw,31px)}
+ .viewport{height:clamp(380px,51svh,560px)}.toolbar{gap:12px}.control-deck{grid-template-columns:minmax(300px,1fr) minmax(220px,280px);grid-template-areas:'touch skill';gap:30px;padding:16px 24px}
+ .desktop-controls{display:none}.mobile-controls{display:flex;align-items:center;justify-content:space-between;padding:0;background:transparent;gap:30px}.quest-log{gap:18px}.quest-step h3{font-size:20px}.quest-step p{font-size:17px}.step-state{left:38px}
+}
+@media(max-width:700px){
+ .cartridge{padding:0 14px}.masthead{height:58px}.brand{font-size:9px;gap:7px}.brand-star{font-size:26px}.edition{font-size:13px;letter-spacing:.3px;gap:8px}.edition span{margin:0;padding:5px 7px}
+ .heading{padding:10px 2px 23px;gap:16px}.dedication{font-size:20px;margin:0 0 12px}h1{font-size:clamp(19px,4.5vw,27px);max-width:390px;letter-spacing:-.6px;line-height:1.55}h1 span{display:block}
+ .subline{font-size:20px;line-height:1.2;max-width:390px;margin-top:11px}.level-stamp{width:80px;height:94px;gap:5px}.level-stamp b{font-size:10px}.level-stamp span{font-size:13px}
+ .game-frame{border-width:3px;box-shadow:4px 4px #c8b5d6;scroll-margin-top:8px}.toolbar{min-height:66px;padding:8px 9px;gap:10px}.player{gap:7px}.avatar{width:32px;height:37px}.avatar img{width:72px;max-width:none;left:-20px;top:-10px}
+ .player b{font-size:18px}.player span{font-size:14px;max-width:150px}.star-count{font-size:25px;gap:4px}.tools{gap:4px}.tools button,#sound-button{width:44px;min-width:44px;padding:0;font-size:21px}.tools button span{display:none}
+ .viewport{height:clamp(260px,calc(100svh - 374px),470px)}.location{left:10px;top:10px;padding:6px 8px;font-size:13px}.ride-status{top:10px;right:8px;padding:5px 7px;font-size:15px}
+ .control-deck{grid-template-columns:1fr;grid-template-areas:'skill' 'touch';gap:12px;padding:10px 15px 14px}.skill-button{min-height:56px;padding:7px 11px;gap:10px}.skill-key{width:32px;height:32px}.skill-copy b{font-size:22px}.skill-copy small{font-size:16px}.skill-clock{font-size:18px}
+ .mobile-controls{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0;background:transparent}.desktop-controls{display:none}.quest-strip{padding:9px 11px;gap:8px;min-height:58px}.quest-strip p{font-size:18px}.quest-badge{font-size:12px;padding:5px 6px}
+ .welcome-inner{padding:18px 20px}.welcome-stars{font-size:26px;margin-bottom:9px}.welcome .small{font-size:8px;line-height:1.7;margin-bottom:12px}.welcome h2{font-size:20px;line-height:1.6}.welcome p:not(.pixel){font-size:20px;line-height:1.2;margin:14px 0 18px}.welcome p br{display:none}.welcome-note{font-size:10px;letter-spacing:.4px;margin-top:16px}.welcome .primary{font-size:21px;padding:9px 12px;gap:12px}
+ .quest-log{grid-template-columns:1fr;margin:23px 4px 10px;gap:18px}.quest-step{padding:0;gap:12px}.step-icon{width:25px;text-align:center}.quest-step>div{flex:1}.quest-step h3{font-size:22px;margin-bottom:3px}.quest-step p{font-size:18px}.step-state{position:static;margin-left:auto;min-width:74px;text-align:right;font-size:11px}
+ footer{font-size:15px;padding-top:5px}footer>span:last-child{display:none}.rpg-dialog,.gift-dialog{width:calc(100% - 24px);max-width:calc(100% - 24px);max-height:calc(100dvh - 24px);box-shadow:4px 4px #ae8fb8}.dialog-top{font-size:9px;padding:6px 12px}.help-body{padding:22px;font-size:22px}.gift-body{display:flex;flex-direction:column;padding:22px;gap:22px}.memory{width:165px;align-self:center}.memory img{height:170px}.memory span{font-size:14px}.letter h2{font-size:18px}.letter p{font-size:23px}.letter #greeting{min-height:0}.letter .wish{font-size:21px}.reset-actions{flex-wrap:wrap;gap:12px}
+}
+@media(min-width:371px) and (max-width:430px){.toolbar{padding:8px 7px;gap:6px}.player{gap:5px}.player b{font-size:16px}.player span{font-size:13px;max-width:84px}.star-count{font-size:23px;gap:3px}.tools{gap:3px}.avatar{width:29px}}
+@media(max-width:370px){
+ .cartridge{padding:0 10px}.edition{font-size:0}.edition span{font-size:13px}.heading{gap:10px}.level-stamp{width:65px;height:85px}.level-stamp b{font-size:8px}.level-stamp span{font-size:12px}.dedication{font-size:18px}h1{font-size:18px}.subline{font-size:18px}
+ .toolbar{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'player tools' 'counter tools';gap:2px 8px;padding:8px 10px}.player{grid-area:player;gap:6px}.star-count{grid-area:counter;font-size:22px;gap:4px;padding-left:36px}.tools{grid-area:tools;gap:3px}.tools button,#sound-button{min-width:44px;width:44px}.player b{font-size:17px}.player span{display:none}.avatar{width:29px;height:29px}.viewport{height:clamp(240px,calc(100svh - 390px),410px)}
+ .control-deck{padding:9px 11px 13px}.action-pad{gap:12px}.action-pad button{width:48px;height:48px;min-height:48px}.welcome-inner{padding:15px}.welcome h2{font-size:17px}.welcome p:not(.pixel){font-size:18px}.welcome-note{font-size:9px}.quest-step p{font-size:16px}.step-state{min-width:60px;font-size:10px}
+}
+@media(min-width:1101px) and (pointer:coarse){.control-deck{grid-template-areas:'touch skill';grid-template-columns:minmax(320px,1fr) minmax(260px,320px);gap:42px;padding:16px 30px}.mobile-controls{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:0;background:transparent}.desktop-controls{display:none}}
+@media(max-width:700px) and (max-height:760px){.welcome-stars,.welcome-note{display:none}.welcome .small{margin-bottom:10px}.welcome h2{font-size:18px}.welcome p:not(.pixel){font-size:19px;margin:10px 0 14px}.welcome-inner{padding:17px}}
+@media(min-width:600px) and (max-height:560px) and (orientation:landscape){
+ .masthead{height:44px}.heading{padding:3px 0 16px}.dedication{display:none}h1{font-size:23px}h1 span{display:inline}.subline{font-size:18px;margin-top:5px}.level-stamp{width:65px;height:65px;gap:3px}.level-stamp span{font-size:11px}.level-stamp b{font-size:8px}
+ .game-frame{display:grid;grid-template-columns:minmax(0,1fr) 190px;grid-template-areas:'toolbar controls' 'screen controls' 'quest controls' 'progress controls';scroll-margin-top:6px}.toolbar{grid-area:toolbar;min-height:56px;padding:5px 8px;gap:6px}.player b{font-size:16px}.player span{display:none}.avatar{width:29px;height:30px}.star-count{font-size:22px;gap:4px}.tools button,#sound-button{width:44px;min-width:44px;padding:0}.tools button span{display:none}
+ .viewport{grid-area:screen;height:max(180px,calc(100svh - 132px))}.quest-strip{grid-area:quest;min-height:44px;padding:5px 9px}.quest-strip p{font-size:17px}.progress-track{grid-area:progress}
+ .control-deck{grid-area:controls;display:flex;flex-direction:column;justify-content:center;padding:10px;gap:14px;border-left:3px solid var(--ink)}.skill-bar{width:100%}.skill-button{padding:7px;gap:6px;min-height:54px}.skill-key{width:25px;height:29px;font-size:20px}.skill-copy b{font-size:20px}.skill-copy small{font-size:13px;white-space:normal}.skill-clock{font-size:16px;min-width:28px}
+ .mobile-controls{display:flex;flex-direction:column;gap:8px;padding:0;justify-content:center;align-items:center;background:transparent}.action-pad{gap:20px;transform:none}.action-pad>div:first-child{margin-top:0}.desktop-controls{display:none}.welcome-stars,.welcome-note,.welcome .small{display:none}.welcome-inner{padding:12px 18px}.welcome h2{font-size:17px;line-height:1.4}.welcome p:not(.pixel){margin:8px 0 10px;font-size:18px}.welcome .primary{min-height:44px;font-size:19px}.rpg-dialog{max-height:calc(100dvh - 16px)}
+}
+
+/* Handheld layout: left D-Pad, centered display, right A/B and skill. */
+@media(min-width:701px) and (max-width:1100px), (min-width:600px) and (max-height:560px) and (orientation:landscape){
+ .game-frame{display:grid;grid-template-columns:148px minmax(0,1fr) 156px;grid-template-rows:auto 1fr 1fr auto 4px;grid-template-areas:'toolbar toolbar toolbar' 'left screen right' 'left screen skill' 'quest quest quest' 'progress progress progress';background:#f4edf5}
+ .toolbar{grid-area:toolbar}.viewport{grid-area:screen;min-width:0;border-left:2px solid #d4bedb;border-right:2px solid #d4bedb}.quest-strip{grid-area:quest;background:var(--paper)}.progress-track{grid-area:progress}
+ .control-deck,.mobile-controls{display:contents}.desktop-controls,.touch-tip{display:none}
+ .dpad{grid-area:left;justify-self:center;align-self:center;margin:0}
+ .action-pad{grid-area:right;justify-self:center;align-self:end;gap:16px;margin:0 5px 13px;transform:rotate(-8deg)}.action-pad>div:first-child{margin-top:18px}.action-pad button{width:52px;height:52px;min-height:52px}
+ .skill-bar{grid-area:skill;align-self:start;justify-self:stretch;margin:7px 10px 0;width:auto;padding:0;border:0}.skill-button{padding:8px;gap:5px;min-height:62px;width:100%}.skill-key{display:none}.skill-copy b{font-size:19px;line-height:1.1}.skill-copy small{font-size:13px;line-height:1.1;white-space:normal}.skill-clock{font-size:15px;min-width:30px}
+ .welcome-inner{width:min(92%,420px);padding:18px}.welcome h2{font-size:19px}.welcome-stars{font-size:27px}.welcome p:not(.pixel){font-size:20px}.welcome p br{display:none}.welcome .primary{font-size:20px;gap:9px;padding:10px 12px}
+ .location{font-size:12px;left:8px;top:8px;padding:5px 7px}.ride-status{top:auto;bottom:10px;right:8px;font-size:14px}.toast{font-size:18px;bottom:12px;padding:9px 12px}
+}
+@media(min-width:600px) and (max-width:700px) and (max-height:560px) and (orientation:landscape){.game-frame{grid-template-columns:136px minmax(0,1fr) 140px}.skill-bar{margin-left:7px;margin-right:7px}.action-pad{gap:12px}.action-pad button{width:48px;height:48px;min-height:48px}.welcome h2{font-size:15px}.welcome p:not(.pixel){font-size:17px}.welcome .primary{font-size:17px;padding:8px}.welcome-inner{padding:12px}.welcome-stars,.welcome-note,.welcome .small{display:none}}
+
