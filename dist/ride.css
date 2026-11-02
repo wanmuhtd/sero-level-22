@@ -1,0 +1,15 @@
+.skill-bar{display:flex;align-items:center;gap:20px;padding:11px 17px;background:#f9eef0;border-bottom:2px solid #dfcbdc}
+.skill-button{display:flex;gap:12px;align-items:center;background:#f5c9c5;border:2px solid #ad7886;padding:7px 12px;min-height:58px;min-width:300px;text-align:left;color:#533748;position:relative;overflow:hidden}
+.skill-button:disabled{opacity:.75;cursor:default;filter:none;transform:none}
+.skill-key{width:35px;height:35px;display:grid;place-items:center;background:#fff8e8;border:2px solid #bd969c;font-size:24px;flex-shrink:0}
+.skill-copy{display:flex;flex-direction:column;gap:2px;flex:1;z-index:1}
+.skill-copy b{font-weight:400;font-size:23px;line-height:1}.skill-copy small{font-size:17px;color:#856172}
+.skill-clock{font-size:18px;white-space:nowrap;z-index:1;min-width:45px;text-align:right}
+.skill-button::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:var(--skill-progress,100%);background:#b56277;transition:width .1s linear}
+.skill-button[data-phase="riding"]{background:#f9dcad;border-color:#b39162}.skill-button[data-phase="riding"]::after{background:#b68a43}
+.skill-button[data-phase="cooldown"]{background:#e8dce9;border-color:#b7a0bc}.skill-button[data-phase="cooldown"]::after{background:#9a7ba5}
+.skill-info{margin:0;color:#967486;font-size:17px;line-height:1.15}.skill-info strong{font-weight:400;color:#714c64}
+.ride-status{position:absolute;bottom:18px;right:16px;background:#fff1d4;color:#77533a;padding:7px 12px;border:2px solid #bb9567;font-size:18px;pointer-events:none}
+@media(max-width:600px){.skill-bar{padding:8px;gap:8px;flex-wrap:wrap}.skill-button{width:100%;min-width:0;min-height:58px}.skill-info{font-size:15px;width:100%;text-align:center}.skill-copy b{font-size:21px}.skill-copy small{font-size:16px}.skill-clock{font-size:17px}.ride-status{right:8px;bottom:12px;font-size:16px;padding:5px 8px}.skill-key{height:32px;width:32px}.mobile-controls{padding-top:9px;padding-bottom:9px}.dpad{grid-template-columns:40px 40px 40px;grid-template-rows:40px 40px 40px}.dpad button{min-height:40px}}
+@media(prefers-reduced-motion:reduce){.skill-button::after{transition:none}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:600px){.dpad{grid-template-columns:44px 44px 44px;grid-template-rows:44px 44px 44px}.dpad button{min-height:44px}}

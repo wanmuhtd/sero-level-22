@@ -1,0 +1,19 @@
+/* Room for both the avatar and touch controls on narrow phones. */
+@media(max-width:600px){
+ .game-frame{scroll-margin-top:8px}
+ .toolbar{padding:8px 6px;gap:5px}
+ .player{min-width:0;gap:5px}
+ .player>div:last-child{min-width:0}
+ .player b{font-size:16px;white-space:nowrap}
+ .player span{font-size:13px;white-space:nowrap;max-width:82px;overflow:hidden;text-overflow:ellipsis}
+ .avatar{flex-shrink:0;width:30px}
+ .star-count{font-size:23px;gap:3px;margin:0}
+ .tools{gap:3px}
+ .tools button,#sound-button{min-width:40px;padding:0 5px}
+ .dpad{grid-template-columns:44px 44px 44px;grid-template-rows:44px 44px 44px}
+ .dpad button{min-height:44px}
+ .action-pad button{height:48px;width:48px;min-height:48px}
+ .mobile-controls{padding:12px 15px}
+ .touch-tip{display:none}
+}
+@media(max-width:370px){.player b{font-size:14px}.player span{font-size:12px;max-width:65px}.tools button,#sound-button{min-width:35px}.star-count{font-size:21px}}

@@ -1,0 +1,7 @@
+# Sero's birthday cartridge
+
+The page is the object: Sero's 22nd birthday becomes a playable pastel game cartridge. The 22 wishes are real collectible stars in a garden, with the cake and gold gift as the final destination. Subject inventory: Sero, 3 November, age 22, cream crochet bonnet, blonde twin braids, pink flower, off-shoulder leopard layered tee, blue below-knee baggy jorts, a secret letter and original selfie. Primary action: start and play the birthday quest.
+
+The supplied retro art direction overrides the skill's typography, violet, framing and decoration restrictions. The dealt photographic treatment and four-photo floor do not apply: this is a Canvas game with its own illustrated world, generated transparent character sprites and the user's original photo. No stock photography. Canvas world uses deterministic pixel geometry. The golden-blonde character now has a generated 4 × 4 directional walking sheet: front, left, right, and back views, four frames per direction. Idle retains the last direction, jumping keeps orientation, and celebration faces the player with bounce/confetti. Source frames are alpha-trimmed at load time for a consistent foot baseline and scale. Generic four-row animation sheets remain supported as an alternative.
+
+No framework dependency is needed: HTML5 Canvas and responsive CSS meet the brief with static hosting, offline-compatible synthesized audio, and browser-local progress.

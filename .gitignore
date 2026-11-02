@@ -1,0 +1,12 @@
+*.local.cjs
+release/
+*.zip
+preview*.png
+layout-*.png
+.taste-skill/
+dist/__qa*
+dist/assets/*
+!dist/assets/character-blonde.png
+!dist/assets/character-walk.png
+!dist/assets/kebab-scoopy.png
+!dist/assets/memory.png

@@ -1,0 +1,1 @@
+{"name":"sero-level-22","version":"1.2.0","private":true,"scripts":{"start":"node serve.cjs","check":"node --check dist/game.js && node --check dist/ride.js && node --check dist/config.js && node --check serve.cjs"}}

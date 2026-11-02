@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ede3f6"><meta name="description" content="22 bintang, satu harapan, dan petualangan baru untuk Sero. Sebuah game ulang tahun spesial, 3 November.">
+  <title>Sero · Level 22 Unlocked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261103-sero-clean"><link rel="stylesheet" href="mobile.css?v=20261103-sero-clean"><link rel="stylesheet" href="ride.css?v=20261103-sero-clean"><link rel="stylesheet" href="responsive.css?v=20261103-sero-clean">
+</head>
+<body>
+<main class="cartridge">
+  <header class="masthead"><a href="./" class="brand" aria-label="Sero Birthday Adventure"><span class="brand-star">✦</span> SERO'S WORLD</a><div class="edition">BIRTHDAY EDITION <span>03 NOV</span></div></header>
+  <section class="heading"><div><p class="dedication">A tiny adventure, just for you.</p><h1>Level 22 <span>unlocked!</span></h1><p class="subline">Happy birthday, Sero. Petualangan terbaikmu baru dimulai.</p></div><div class="level-stamp"><span>PLAYER</span><b>SERO</b><span>LV. <strong>22</strong> / ∞</span></div></section>
+  <section class="game-frame" aria-label="Permainan petualangan ulang tahun">
+    <div class="toolbar"><div class="player"><div class="avatar"><img src="assets/character-blonde.png" alt=""></div><div><b>Sero</b><span id="phase-label">Birthday Quest</span></div></div><div class="star-count" aria-live="polite"><span>★</span> <b id="count">0</b><span class="count-total">/ 22</span></div><div class="tools"><button id="map-button" aria-label="Tampilkan peta" aria-pressed="false">▦ <span>Peta</span></button><button id="sound-button" aria-label="Nyalakan musik" aria-pressed="false">♪ <span id="sound-label">OFF</span></button><button id="help-button" aria-label="Panduan permainan">?</button></div></div>
+    <div class="viewport" id="viewport"><canvas id="game" tabindex="0" aria-label="Taman ulang tahun. Gunakan WASD atau panah untuk bergerak, Space untuk lompat, E untuk interaksi."></canvas>
+      <div class="location"><span class="live-dot"></span><span id="location-name">WISHING GARDEN</span></div>
+      <div id="toast" class="toast" role="status"></div>
+      <div class="welcome" id="welcome"><div class="welcome-inner"><div class="welcome-stars">✦ &nbsp; ★ &nbsp; ✦</div><p class="pixel small">A BIRTHDAY ADVENTURE</p><h2>22 bintang.<br>Satu harapan.</h2><p>Jelajahi taman kecil ini, kumpulkan bintang,<br>dan temukan kejutan untukmu.</p><button id="start" class="primary">Mulai petualangan <span>▶</span></button><span class="welcome-note">TAKE YOUR TIME. IT'S YOUR DAY.</span></div></div>
+      <button id="interact" class="interact" hidden>ⓔ Interaksi</button>
+      <div id="ride-status" class="ride-status" hidden>Boncengan · 5.0d</div>
+      <div id="pause-screen" class="pause-screen" hidden><div><h2>Istirahat sebentar?</h2><p>Petualanganmu menunggu di sini.</p><button id="resume" class="primary">Lanjut bermain ▶</button></div></div>
+    </div>
+    <div class="quest-strip"><span class="quest-badge">QUEST</span><p id="objective">Kumpulkan 22 bintang untuk menyalakan lilin ulang tahun.</p><span id="quest-progress">0%</span></div>
+    <div class="progress-track"><div id="progress-bar"></div></div>
+    <div class="control-deck">
+    <div class="skill-bar"><button id="ride-skill" class="skill-button" disabled aria-label="Call Kebab, minta antar"><span class="skill-key">Q</span><span class="skill-copy"><b>Call Kebab</b><small id="skill-label">Minta antar</small></span><span id="skill-timer" class="skill-clock">SIAP</span></button></div>
+    <div class="mobile-controls" aria-label="Kontrol sentuh"><div class="dpad"><button data-key="ArrowUp" class="up" aria-label="Bergerak atas">▲</button><button data-key="ArrowLeft" class="left" aria-label="Bergerak kiri">◀</button><span></span><button data-key="ArrowRight" class="right" aria-label="Bergerak kanan">▶</button><button data-key="ArrowDown" class="down" aria-label="Bergerak bawah">▼</button></div><div class="touch-tip">22 little wishes<br>waiting for you.</div><div class="action-pad"><div><button id="touch-b" aria-label="Interaksi">B</button><span>INTERAKSI</span></div><div><button id="touch-a" aria-label="Lompat">A</button><span>LOMPAT</span></div></div></div>
+    <div class="desktop-controls"><p><kbd>W A S D</kbd> / <kbd>↑ ← ↓ →</kbd> bergerak <i></i><kbd>SPACE</kbd> lompat / interaksi <i></i><kbd>E</kbd> interaksi</p><button id="pause-button">Ⅱ Jeda</button></div>
+    </div>
+  </section>
+  <section class="quest-log" aria-label="Tahap petualangan"><div id="step1" class="quest-step active"><span class="step-icon">★</span><div><h3>Birthday Quest</h3><p>22 bintang, 22 harapan baik.</p></div><span class="step-state">IN PROGRESS</span></div><div id="step2" class="quest-step"><span class="step-icon">♜</span><div><h3>Make a Wish</h3><p>Nyalakan lilin di kue raksasa.</p></div><span class="step-state">LOCKED</span></div><div id="step3" class="quest-step"><span class="step-icon">▣</span><div><h3>A Little Surprise</h3><p>Ada sesuatu yang menunggumu.</p></div><span class="step-state">LOCKED</span></div></section>
+  <footer><span>Made of pixels. Filled with love.</span><button id="restart">↻ Mulai ulang</button><span>3 NOVEMBER · SERO · 22</span></footer>
+</main>
+<dialog id="help-dialog" class="rpg-dialog"><div class="dialog-top"><span>PLAYER'S GUIDE</span><button class="close-dialog" aria-label="Tutup panduan">×</button></div><div class="help-body"><h2>Petualangan kecilmu</h2><p>Bergerak dengan <b>WASD / tombol panah</b> atau D-Pad di ponsel. Bintang terkumpul saat kamu mendekatinya.</p><ol><li>Kumpulkan semua <b>22 bintang emas</b>. Irisan kue adalah bonus!</li><li>Datangi kue raksasa di timur laut. Tekan <b>E / Space / B</b> untuk menyalakan lilin.</li><li>Buka kado berpita emas di dekat kue. Ada pesan untukmu.</li></ol><p><b>Space / A</b> untuk lompat. Buka <b>Peta</b> untuk melihat bintang tersisa. Progres disimpan otomatis di perangkat ini.</p><button class="primary close-dialog">Siap berpetualang ▶</button></div></dialog>
+<dialog id="gift-dialog" class="rpg-dialog gift-dialog"><div class="dialog-top"><span>★ LEVEL 22 ACHIEVED! ★</span><button class="close-dialog" aria-label="Tutup ucapan">×</button></div><div class="gift-body"><div class="memory"><img src="assets/memory.png" alt="Foto Sero dengan topi rajut dan rambut kepang"><span>A little moment, forever.</span></div><div class="letter"><span class="letter-date">3 NOVEMBER · LEVEL 22</span><h2>Sero,</h2><p id="greeting"></p><p class="wish">Here's to your next chapter.<br>Keep being wonderfully you. ♡</p><button id="next-dialog" class="primary">Next <span class="blink">▶</span></button></div></div></dialog>
+<dialog id="reset-dialog" class="rpg-dialog"><div class="help-body"><h2>Mulai petualangan baru?</h2><p>Progres bintang dan kado di perangkat ini akan diulang dari awal.</p><div class="reset-actions"><button id="cancel-reset">Batal</button><button id="confirm-reset" class="primary">Ya, mulai ulang</button></div></div></dialog>
+<script src="config.js?v=20261103-sero-clean"></script><script src="ride.js?v=20261103-sero-clean"></script><script src="game.js?v=20261103-sero-clean"></script>
+</body></html>
+
+
+
